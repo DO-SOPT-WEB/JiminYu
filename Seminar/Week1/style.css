@@ -1,0 +1,32 @@
+h1 {
+	color: orange;
+	background-color: bisque;
+}
+
+h2 {
+	color: orange;
+}
+
+p {
+	font-size: 20px;
+}
+
+li:first-child {
+	color: red;
+}
+
+li:nth-child(2) {
+	background-color: orange;
+}
+
+li:nth-child(3) {
+	color: pink;
+}
+
+li:last-child {
+	text-decoration: underline;
+}
+
+li::before {
+	content: "🐝";
+}
