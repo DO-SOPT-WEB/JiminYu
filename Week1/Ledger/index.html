@@ -12,93 +12,108 @@
 		<section class="summary-section">
 			<article class="summary-article">
 				<h2>나의 자산</h2>
-				<span>500000</span>
-				<div><img src="./images/minus.png" alt="" /><span>30000</span></div>
-				<div><img src="./images/plus.png" alt="" /><span>30000</span></div>
+				<span class="total">500000</span>
+				<div class="summary-article__details">
+					<div class="summary-article__details-minus">
+						<img src="./images/minus.png" alt="" /><span>30000</span>
+					</div>
+					<div class="summary-article__details-plus">
+						<img
+							class="summary-article__details-plus"
+							src="./images/plus.png"
+							alt=""
+						/><span>60000</span>
+					</div>
+				</div>
 			</article>
 		</section>
-		<hr />
+		<div class="first-line"></div>
 		<!-- 세부 리스트 영역 -->
 		<section>
-			<header class="date-container">
-				<h3>10월 1일</h3>
-				<div>
-					<h4>내역 리스트</h4>
-					<input class="checkbox__income" type="checkbox" />
-					<input class="checkbox__expense" type="checkbox" />
+			<header class="details-container">
+				<div class="date-container">
+					<button type="button"><</button>
+					<h3>10월 13일</h3>
+					<button type="button">></button>
 				</div>
+				<div class="h4-checkbox-container">
+					<h4>내역 리스트</h4>
+					<div class="checkbox-container">
+						<label class="checkbox__income">
+							<input type="checkbox" checked />수입
+						</label>
+						<label class="checkbox__expense">
+							<input type="checkbox" checked />지출
+						</label>
+					</div>
+				</div>
+				<div class="second-line"></div>
 			</header>
-			<article class="list-container">
-				<ul>
-					<li>
-						<span class="list__category">식비</span>
-						<span class="subject">학식</span>
-						<span class="amount">-3500</span>
-						<button type="button">ⅹ</button>
-					</li>
-					<li>
-						<span class="list__category">식비</span>
-						<span class="subject">학식</span>
-						<span class="amount">-3500</span>
-						<button type="button">ⅹ</button>
-					</li>
-					<li>
-						<span class="list__category">식비</span>
-						<span class="subject">학식</span>
-						<span class="amount">-3500</span>
-						<button type="button">ⅹ</button>
-					</li>
-					<li>
-						<span class="list__category">식비</span>
-						<span class="subject">학식</span>
-						<span class="amount">-3500</span>
-						<button type="button">ⅹ</button>
-					</li>
-					<li>
-						<span class="list__category">식비</span>
-						<span class="subject">학식</span>
-						<span class="amount">-3500</span>
-						<button type="button">ⅹ</button>
-					</li>
-					<li>
-						<span class="list__category">식비</span>
-						<span class="subject">학식</span>
-						<span class="amount">-3500</span>
-						<button type="button">ⅹ</button>
-					</li>
-					<li>
-						<span class="list__category">식비</span>
-						<span class="subject">학식</span>
-						<span class="amount">-3500</span>
-						<button type="button">ⅹ</button>
-					</li>
-					<li>
-						<span class="list__category">식비</span>
-						<span class="subject">학식</span>
-						<span class="amount">-3500</span>
-						<button type="button">ⅹ</button>
-					</li>
-					<li>
-						<span class="list__category">식비</span>
-						<span class="subject">학식</span>
-						<span class="amount">-3500</span>
-						<button type="button">ⅹ</button>
-					</li>
-					<li>
-						<span class="list__category">식비</span>
-						<span class="subject">학식</span>
-						<span class="amount">-3500</span>
-						<button type="button">ⅹ</button>
-					</li>
-					<li>
-						<span class="list__category">식비</span>
-						<span class="subject">학식</span>
-						<span class="amount">-3500</span>
-						<button type="button">ⅹ</button>
-					</li>
-				</ul>
-			</article>
+			<!-- 내역 리스트 항목들 -->
+			<ul class="list-container">
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">알바</span>
+					<span class="amount_plus">+500000</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+			</ul>
 		</section>
+
 		<footer>
 			<button type="button">
 				<img src="./images/addition.png" alt="" />
