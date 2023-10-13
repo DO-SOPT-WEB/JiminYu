@@ -1,5 +1,17 @@
 @import "../reset.css";
 
+@font-face {
+	font-family: "UhBeeJJIBBABBA";
+	src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeJJIBBABBA.woff")
+		format("woff");
+	font-weight: normal;
+	font-style: normal;
+}
+
+* {
+	font-family: "UhBeeJJIBBABBA";
+}
+
 body {
 	background-color: #fff6d0;
 }
