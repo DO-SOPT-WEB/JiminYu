@@ -107,7 +107,37 @@ label {
 
 .h4-checkbox-container {
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
+	align-items: center;
+}
+
+/* 체크박스 커스텀 */
+input[type="checkbox"] {
+	display: none;
+}
+
+label {
+	text-align: center;
+	vertical-align: center;
+	line-height: 1.5rem;
+}
+
+input[type="checkbox"] + label {
+	display: inline-block;
+
+	width: 4rem;
+	height: 2rem;
+
+	border: 0.2rem solid orange;
+	border-radius: 0.5rem;
+	cursor: pointer;
+}
+
+input[type="checkbox"]:checked + label {
+	display: inline-block;
+
+	color: white;
+	background-color: orange;
 }
 
 .list-container {
