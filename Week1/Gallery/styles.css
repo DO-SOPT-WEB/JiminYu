@@ -123,7 +123,8 @@ nav {
 }
 
 /* 두 번째 섹션 */
-.cat-images {
+
+.images-cat {
 	display: flex;
 	margin: 3rem;
 }
