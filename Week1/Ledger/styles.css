@@ -147,6 +147,15 @@ label {
 	font-size: 1.1rem;
 }
 
+/* 길어지면 말줄임 처리하기 */
+.subject {
+	display: block;
+	width: 10rem;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
 .subject,
 .amount_minus,
 .amount_plus {
