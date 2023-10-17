@@ -119,8 +119,8 @@ nav {
 }
 
 .images-panda img:hover {
-	transition-duration: 0.7s, 0.7s;
 	transform: translateY(-0.5rem);
+	transition: transform 0.3s linear;
 }
 
 /* 두 번째 섹션 */
@@ -148,8 +148,8 @@ nav {
 }
 
 .cat-div__left img:hover {
-	transition-duration: 0.7s, 0.7s;
 	transform: translateY(-0.5rem);
+	transition: transform 0.3s linear;
 }
 
 .cat-div__right {
@@ -164,8 +164,8 @@ nav {
 }
 
 .cat-div__right img:hover {
-	transition-duration: 0.7s, 0.7s;
 	transform: translateY(-0.5rem);
+	transition: transform 0.3s linear;
 }
 
 /* 세 번째 섹션 */
