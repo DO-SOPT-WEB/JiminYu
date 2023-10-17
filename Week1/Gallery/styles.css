@@ -1,5 +1,6 @@
 @import "../reset.css";
 
+/* 웹 폰트 설정 */
 @font-face {
 	font-family: "UhBeeJJIBBABBA";
 	src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_five@.2.0/UhBeeJJIBBABBA.woff")
@@ -43,6 +44,7 @@ header {
 	/* flex-basis: 30rem; */
 }
 
+/* 네비게이션 */
 nav {
 	padding: 3rem;
 	font-size: 2.4rem;
@@ -94,6 +96,7 @@ nav {
 	height: 3rem;
 }
 
+/* 첫 번째 섹션 */
 .section-panda {
 	width: 100vw;
 }
@@ -114,6 +117,7 @@ nav {
 	flex-grow: 1;
 }
 
+/* 두 번째 섹션 */
 .cat-images {
 	display: flex;
 	margin: 3rem;
@@ -147,6 +151,7 @@ nav {
 	object-fit: cover;
 }
 
+/* 세 번째 섹션 */
 .puppy-container {
 	display: grid;
 	width: 100vw;
@@ -193,6 +198,7 @@ nav {
 	grid-row: 3 / 5;
 }
 
+/* 푸터 */
 footer {
 	padding: 3rem;
 	font-size: 2.4rem;
