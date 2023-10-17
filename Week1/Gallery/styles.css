@@ -45,8 +45,6 @@ header {
 
 .preview img {
 	width: 25rem;
-	height: 25rem;
-	/* flex-basis: 30rem; */
 }
 
 /* 네비게이션 */
@@ -102,9 +100,6 @@ nav {
 }
 
 /* 첫 번째 섹션 */
-.section-panda {
-	width: 100vw;
-}
 
 .images-panda {
 	display: flex;
@@ -174,8 +169,6 @@ nav {
 /* 세 번째 섹션 */
 .puppy-container {
 	display: grid;
-	width: 100vw;
-	height: 50rem;
 
 	padding: 3rem;
 	gap: 1rem;
