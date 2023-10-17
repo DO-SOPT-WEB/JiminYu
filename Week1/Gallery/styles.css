@@ -45,6 +45,7 @@ header {
 
 .preview img {
 	width: 25rem;
+	flex-basis: 25rem;
 }
 
 /* 네비게이션 */
@@ -115,6 +116,7 @@ nav {
 
 	object-fit: cover;
 
+	flex-shrink: 1;
 	flex-grow: 1;
 }
 
@@ -128,6 +130,8 @@ nav {
 .images-cat {
 	display: flex;
 	margin: 3rem;
+
+	flex-wrap: wrap;
 }
 
 .cat-div__left,
@@ -135,6 +139,7 @@ nav {
 	display: flex;
 	flex-wrap: wrap;
 	flex-grow: 1;
+	flex-shrink: 1;
 
 	width: 40rem;
 	height: 40rem;
@@ -144,6 +149,8 @@ nav {
 	width: 41rem;
 	height: 41rem;
 
+	flex-grow: 1;
+	flex-shrink: 1;
 	object-fit: cover;
 }
 
@@ -159,6 +166,9 @@ nav {
 .cat-div__right img {
 	width: 20rem;
 	height: 20rem;
+
+	flex-grow: 1;
+	flex-shrink: 1;
 
 	object-fit: cover;
 }
