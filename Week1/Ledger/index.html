@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="styles.css" />
+		<title>지뮤 가계부</title>
+	</head>
+	<body>
+		<h1>지뮤의 가계부</h1>
+
+		<!-- 총액 보여주는 영역 -->
+		<section class="summary-section">
+			<article class="summary-article">
+				<h2>나의 자산</h2>
+				<span class="total">500000</span>
+				<div class="summary-article__details">
+					<div class="summary-article__details-minus">
+						<img src="./images/minus.png" alt="마이너스" /><span>30000</span>
+					</div>
+					<div class="summary-article__details-plus">
+						<img
+							class="summary-article__details-plus"
+							src="./images/plus.png"
+							alt="플러스"
+						/><span>60000</span>
+					</div>
+				</div>
+			</article>
+		</section>
+		<div class="first-line"></div>
+
+		<!-- 세부 리스트 영역 -->
+		<section>
+			<header class="details-container">
+				<div class="date-container">
+					<button type="button"><</button>
+					<h3>10월 13일</h3>
+					<button type="button">></button>
+				</div>
+				<div class="h4-checkbox-container">
+					<h4>내역 리스트</h4>
+					<div class="checkbox-container">
+						<label class="checkbox__income">
+							<input type="checkbox" checked />수입
+						</label>
+						<label class="checkbox__expense">
+							<input type="checkbox" checked />지출
+						</label>
+					</div>
+				</div>
+				<div class="second-line"></div>
+			</header>
+
+			<!-- 내역 리스트 항목들 -->
+			<ul class="list-container">
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">알바</span>
+					<span class="amount_plus">+500000</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+				<li>
+					<span class="list__category">식비</span>
+					<span class="subject">학식</span>
+					<span class="amount_minus">-3500</span>
+					<button type="button">X</button>
+				</li>
+			</ul>
+		</section>
+
+		<footer>
+			<button type="button">
+				<img src="./images/addition.png" alt="내역-추가-버튼" />
+			</button>
+		</footer>
+	</body>
+</html>
