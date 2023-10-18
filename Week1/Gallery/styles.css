@@ -43,6 +43,22 @@ header {
 	overflow-x: auto;
 }
 
+/* 스크롤바 커스텀 */
+.preview::-webkit-scrollbar {
+	width: 0.1rem;
+}
+
+.preview::-webkit-scrollbar-thumb {
+	height: 10%;
+
+	background: orange;
+	border-radius: 10px;
+}
+
+.preview::-webkit-scrollbar-track {
+	background: rgba(255, 166, 0, 0.327);
+}
+
 .preview img {
 	width: 25rem;
 	flex-basis: 25rem;
