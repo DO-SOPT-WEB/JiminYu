@@ -110,6 +110,9 @@ nav {
 
 	padding: 1rem;
 	z-index: 1;
+
+	opacity: 0;
+	transition: all 200ms ease-in-out;
 }
 
 .button-top img {
@@ -141,6 +144,20 @@ nav {
 	transition: transform 0.3s linear;
 }
 
+.images-panda img + p {
+	/* display: none; */
+	width: 100%;
+	height: 100%;
+	padding: 3rem;
+	text-align: center;
+
+	background-color: black;
+	opacity: 70%;
+	color: white;
+	transition: transform 0.3s linear;
+	position: relative;
+	
+}
 /* 두 번째 섹션 */
 
 .images-cat {
