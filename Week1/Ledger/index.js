@@ -4,7 +4,6 @@ const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
 const INIT_BALANCE = 0;
-const deleteButton = document.querySelectorAll(".delete_button");
 const deleteButton = $$(".delete_button");
 const listContainer = $(".list-container");
 
@@ -30,7 +29,6 @@ HISTORY_LIST.forEach((history, index) => {
 
   listContainer.appendChild(listItem);
 
-deleteButton.addEventListener
   const listDeleteButton = document.createElement("button");
   listDeleteButton.type = "button";
   listDeleteButton.innerText = "X";
