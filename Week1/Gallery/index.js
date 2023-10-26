@@ -1,3 +1,6 @@
+const $ = (selector) => document.querySelector(selector);
+const $$ = (selector) => document.querySelectorAll(selector);
+
 const pageHeight = window.innerHeight;
 const topButton = document.querySelector(".button-top");
 const pandaImages = document.querySelectorAll(".images-panda img");
