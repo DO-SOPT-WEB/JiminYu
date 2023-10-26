@@ -13,6 +13,11 @@
 	font-family: "UhBeeJJIBBABBA";
 }
 
+/* 스크롤 부드럽게 */
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	width: 100vw;
 
@@ -38,10 +43,25 @@ header {
 	overflow-x: auto;
 }
 
+/* 스크롤바 커스텀 */
+.preview::-webkit-scrollbar {
+	width: 0.1rem;
+}
+
+.preview::-webkit-scrollbar-thumb {
+	height: 10%;
+
+	background: orange;
+	border-radius: 10px;
+}
+
+.preview::-webkit-scrollbar-track {
+	background: rgba(255, 166, 0, 0.327);
+}
+
 .preview img {
 	width: 25rem;
-	height: 25rem;
-	/* flex-basis: 30rem; */
+	flex-basis: 25rem;
 }
 
 /* 네비게이션 */
@@ -89,6 +109,7 @@ nav {
 	right: 0;
 
 	padding: 1rem;
+	z-index: 1;
 }
 
 .button-top img {
@@ -97,9 +118,6 @@ nav {
 }
 
 /* 첫 번째 섹션 */
-.section-panda {
-	width: 100vw;
-}
 
 .images-panda {
 	display: flex;
@@ -114,13 +132,22 @@ nav {
 
 	object-fit: cover;
 
+	flex-shrink: 1;
 	flex-grow: 1;
 }
 
+.images-panda img:hover {
+	transform: translateY(-0.5rem);
+	transition: transform 0.3s linear;
+}
+
 /* 두 번째 섹션 */
-.cat-images {
+
+.images-cat {
 	display: flex;
 	margin: 3rem;
+
+	flex-wrap: wrap;
 }
 
 .cat-div__left,
@@ -128,16 +155,25 @@ nav {
 	display: flex;
 	flex-wrap: wrap;
 	flex-grow: 1;
+	flex-shrink: 1;
 
 	width: 40rem;
 	height: 40rem;
+	margin: 1rem;
 }
 
 .cat-div__left img {
 	width: 41rem;
 	height: 41rem;
 
+	flex-grow: 1;
+	flex-shrink: 1;
 	object-fit: cover;
+}
+
+.cat-div__left img:hover {
+	transform: translateY(-0.5rem);
+	transition: transform 0.3s linear;
 }
 
 .cat-div__right {
@@ -148,14 +184,20 @@ nav {
 	width: 20rem;
 	height: 20rem;
 
+	flex-grow: 1;
+	flex-shrink: 1;
+
 	object-fit: cover;
+}
+
+.cat-div__right img:hover {
+	transform: translateY(-0.5rem);
+	transition: transform 0.3s linear;
 }
 
 /* 세 번째 섹션 */
 .puppy-container {
 	display: grid;
-	width: 100vw;
-	height: 50rem;
 
 	padding: 3rem;
 	gap: 1rem;
