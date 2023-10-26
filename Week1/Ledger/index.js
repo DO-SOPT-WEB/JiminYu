@@ -3,8 +3,6 @@ import { HISTORY_LIST } from "./constants/HISTORY.js";
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
 
-const INIT_BALANCE = 0;
-const deleteButton = $$(".delete_button");
 const listContainer = $(".list-container");
 const balance = $(".total");
 let expense = $(".summary-article__details-minus span");
