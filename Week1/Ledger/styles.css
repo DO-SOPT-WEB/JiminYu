@@ -200,11 +200,11 @@ input[type="checkbox"]:checked + label {
   font-size: 1.3rem;
 }
 
-.minus {
+.plus {
   color: rgb(0, 98, 255);
 }
 
-.plus {
+.minus {
   color: rgb(255, 30, 0);
 }
 
