@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
     <title>지뮤 가계부</title>
+    <script type="module" src="./constants/HISTORY.js"></script>
   </head>
   <body>
     <header><h1>지뮤의 가계부</h1></header>
@@ -51,14 +52,13 @@
       </header>
 
       <!-- 내역 리스트 항목들 -->
-      <ul class="list-container">
-        <li>
-          <span class="list__category">식비</span>
-          <span class="subject">너무배고파서아이스크림을먹었다</span>
-          <span class="amount_minus">-3500</span>
-          <button class="delete_button" type="button">X</button>
-        </li>
-      </ul>
+      <ul class="list-container"></ul>
+    </section>
+
+    <section class="modal-container">
+      <div class="modal-header">
+        <h2>내역 추가</h2>
+      </div>
     </section>
 
     <footer>
@@ -66,5 +66,6 @@
         <img src="./images/addition.png" alt="내역-추가-버튼" />
       </button>
     </footer>
+    <script type="module" src="index.js"></script>
   </body>
 </html>
