@@ -73,4 +73,34 @@ HISTORY_LIST.forEach((history, index) => {
 });
 
 updateAmounts();
+
+// 수입 지출 필터링
+let checked = $("input checked");
+const incomeCheckbox = $("#income");
+const expenseCheckbox = $("#expense");
+const incomeItems = $$(".plus");
+const expenseItems = $$(".minus");
+
+incomeCheckbox.addEventListener("change", () => {
+  if (incomeCheckbox.checked) {
+    incomeItems.forEach((item) => {
+      item.parentNode.style.display = "flex";
+    });
+  } else {
+    incomeItems.forEach((item) => {
+      item.parentNode.style.display = "none";
+    });
+  }
+});
+
+expenseCheckbox.addEventListener("change", () => {
+  if (expenseCheckbox.checked) {
+    expenseItems.forEach((item) => {
+      item.parentNode.style.display = "flex";
+    });
+  } else {
+    expenseItems.forEach((item) => {
+      item.parentNode.style.display = "none";
+    });
+  }
 });
