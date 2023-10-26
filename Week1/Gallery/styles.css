@@ -73,11 +73,13 @@ nav {
 }
 
 .nav-hyperlinks {
+	display: flex;
+	justify-content: center;
 	font-size: 1.7rem;
 	margin-top: 1rem;
 }
 
-.nav-hyperlinks a {
+.nav-hyperlinks li a {
 	margin: 0 1rem;
 }
 
@@ -156,7 +158,6 @@ nav {
 	color: white;
 	transition: transform 0.3s linear;
 	position: relative;
-	
 }
 /* 두 번째 섹션 */
 
