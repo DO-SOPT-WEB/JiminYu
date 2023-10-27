@@ -1,4 +1,5 @@
 import { HISTORY_LIST } from "./constants/HISTORY.js";
+import { CATEGORY } from "./constants/CATEGORY.js";
 
 const $ = (selector) => document.querySelector(selector);
 const $$ = (selector) => document.querySelectorAll(selector);
@@ -9,18 +10,32 @@ let expense = $(".summary-article__details-minus span");
 let income = $(".summary-article__details-plus span");
 
 // 총액 계산해서 보여주기
-let INIT_BALANCE = 0;
+const INIT_BALANCE = 0;
+let balanceAmount = 0;
 let minusAmount = 0;
 let plusAmount = 0;
 
 function updateAmounts() {
-  INIT_BALANCE = plusAmount - minusAmount;
-  balance.innerText = INIT_BALANCE;
+  plusAmount = 0;
+  minusAmount = 0;
+
+  HISTORY_LIST.forEach((history, index) => {
+    const amount = history.amount;
+    const type = history.type;
+
+    if (type === "수입") {
+      plusAmount += amount;
+    } else if (type === "지출") {
+      minusAmount += amount;
+    }
+  });
+  balanceAmount = plusAmount - minusAmount;
+  balance.innerText = balanceAmount;
   expense.innerText = minusAmount;
   income.innerText = plusAmount;
 }
 
-function handleDeleteButtonClick(listItem, amount, type) {
+function handleDeleteButtonClick(listItem, amount, type, index) {
   listItem.remove();
 
   if (type === "수입") {
@@ -29,51 +44,56 @@ function handleDeleteButtonClick(listItem, amount, type) {
     minusAmount -= amount;
   }
 
+  HISTORY_LIST.splice(index, 1);
+
   updateAmounts();
 }
 
 // 상수 파일에서 내역 불러와서 띄워주기
-HISTORY_LIST.forEach((history, index) => {
-  const listItem = document.createElement("li");
-  const { category, subject, amount, type } = history;
+function updateHistoryList() {
+  HISTORY_LIST.forEach((history, index) => {
+    const listItem = document.createElement("li");
+    const { category, subject, amount, type } = history;
 
-  const spanCategory = document.createElement("span");
-  spanCategory.className = "list__category";
-  spanCategory.textContent = category;
-  listItem.appendChild(spanCategory);
+    const spanCategory = document.createElement("span");
+    spanCategory.className = "list__category";
+    spanCategory.textContent = category;
+    listItem.appendChild(spanCategory);
 
-  const spanSubject = document.createElement("span");
-  spanSubject.className = "subject";
-  spanSubject.textContent = subject;
-  listItem.appendChild(spanSubject);
+    const spanSubject = document.createElement("span");
+    spanSubject.className = "subject";
+    spanSubject.textContent = subject;
+    listItem.appendChild(spanSubject);
 
-  const spanAmount = document.createElement("span");
-  spanAmount.className = "amount";
-  spanAmount.textContent = type === "수입" ? amount : -amount;
-  spanAmount.classList.add(type === "수입" ? "plus" : "minus");
-  listItem.appendChild(spanAmount);
+    const spanAmount = document.createElement("span");
+    spanAmount.className = "amount";
+    spanAmount.textContent = type === "수입" ? amount : -amount;
+    spanAmount.classList.add(type === "수입" ? "plus" : "minus");
+    listItem.appendChild(spanAmount);
 
-  const listDeleteButton = document.createElement("button");
-  listDeleteButton.type = "button";
-  listDeleteButton.innerText = "X";
-  listDeleteButton.addEventListener("click", () => {
-    handleDeleteButtonClick(listItem, amount, type);
+    const listDeleteButton = document.createElement("button");
+    listDeleteButton.type = "button";
+    listDeleteButton.innerText = "X";
+    listDeleteButton.addEventListener("click", () => {
+      handleDeleteButtonClick(listItem, amount, type, index);
+    });
+    listItem.appendChild(listDeleteButton);
+
+    listContainer.appendChild(listItem);
   });
-  listItem.appendChild(listDeleteButton);
+}
 
-  listContainer.appendChild(listItem);
+function updateNewHistory() {
+  listContainer.innerHTML = "";
+  updateHistoryList();
+  updateAmounts();
+}
 
-  if (type === "수입") {
-    plusAmount += amount;
-  } else if (type === "지출") {
-    minusAmount += amount;
-  }
-});
-
+balance.innerText = INIT_BALANCE;
+updateHistoryList();
 updateAmounts();
 
 // 수입 지출 필터링
-let checked = $("input checked");
 const incomeCheckbox = $("#income");
 const expenseCheckbox = $("#expense");
 const incomeItems = $$(".plus");
