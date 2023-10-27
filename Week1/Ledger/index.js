@@ -102,3 +102,103 @@ expenseCheckbox.addEventListener("change", () => {
     });
   }
 });
+
+// 버튼 누르면 모달 올라오게
+const addListButton = $("#addition");
+const addModal = $(".modal-container");
+addListButton.addEventListener("click", () => {
+  addModal.classList.add("open");
+  updateCategoryOptions();
+});
+
+//모달 닫기
+const closeButton = $(".close");
+closeButton.addEventListener("click", () => {
+  addModal.classList.remove("open");
+});
+
+// 모달 숫자 입력 시 콤마 찍히도록
+const input = $("#amount");
+input.addEventListener("keyup", function (e) {
+  let amountValue = e.target.value;
+  amountValue = amountValue.replace(/,/g, "");
+
+  // 숫자가 아닌 값이 입력되었는지 검사
+  if (isNaN(Number(amountValue))) {
+    input.value = 0;
+  } else {
+    const formatValue = Number(amountValue).toLocaleString("ko-KR");
+    input.value = formatValue;
+  }
+});
+
+//모달 수입 지출 중 하나만 선택 가능하도록
+const modalIncomeCheckbox = $("#modalIncome");
+const modalExpenseCheckbox = $("#modalExpense");
+
+modalIncomeCheckbox.addEventListener("change", () => {
+  if (modalIncomeCheckbox.checked) {
+    modalExpenseCheckbox.checked = false;
+  }
+
+  updateCategoryOptions();
+});
+
+modalExpenseCheckbox.addEventListener("change", () => {
+  if (modalExpenseCheckbox.checked) {
+    modalIncomeCheckbox.checked = false;
+  }
+
+  updateCategoryOptions();
+});
+
+// 모달 수입 지출 클릭에 맞는 옵션 띄워주기
+const modalCategory = $("#category");
+
+function updateCategoryOptions() {
+  modalCategory.innerHTML = "";
+
+  const SelectedCategory = modalIncomeCheckbox.checked
+    ? "수입"
+    : modalExpenseCheckbox.checked
+    ? "지출"
+    : "null";
+
+  if (SelectedCategory) {
+    const filteredCategoryOptions = CATEGORY.filter(
+      (item) => item.type === SelectedCategory
+    );
+    filteredCategoryOptions.forEach((optionItem) => {
+      const option = document.createElement("option");
+      option.value = optionItem.category;
+      option.text = optionItem.category;
+      modalCategory.appendChild(option);
+    });
+  }
+}
+
+//저장하기 버튼 누르면 리스트에 항목 추가
+const modalSaveButton = $(".save");
+modalSaveButton.addEventListener("click", () => {
+  const category = $("#category").value;
+  const amount = Number($("#amount").value.replace(/,/g, ""));
+  const subject = $("#subject").value;
+  const type = $("#modalIncome").checked ? "수입" : "지출";
+
+  const newItem = {
+    category,
+    amount,
+    subject,
+    type,
+  };
+
+  HISTORY_LIST.push(newItem);
+
+  updateNewHistory();
+
+  $("#category").value = "";
+  $("#amount").value = "";
+  $("#subject").value = "";
+  $("#modalIncome").checked = true;
+  $("#modalExpense").checked = false;
+});

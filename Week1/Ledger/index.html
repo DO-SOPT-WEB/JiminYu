@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="styles.css" />
     <title>지뮤 가계부</title>
     <script type="module" src="./constants/HISTORY.js"></script>
+    <script type="module" src="./constants/CATEGORY.js"></script>
   </head>
   <body>
     <header><h1>지뮤의 가계부</h1></header>
@@ -58,11 +59,29 @@
     <section class="modal-container">
       <div class="modal-header">
         <h2>내역 추가</h2>
+        <div class="checkbox-container">
+          <input type="checkbox" id="modalIncome" checked />
+          <label class="modal-income" for="modalIncome">수입</label>
+          <input type="checkbox" id="modalExpense" />
+          <label class="modal-expense" for="modalExpense"> 지출 </label>
+        </div>
+      </div>
+      <div class="modal-body">
+        <label for="category">종류</label>
+        <select name="category" id="category"></select>
+        <label for="amount">금액</label>
+        <input type="text" name="amount" id="amount" />
+        <label for="subject">내용</label>
+        <input type="text" name="subject" id="subject" />
+      </div>
+      <div class="modal-footer">
+        <button class="modal-button save" type="button">저장하기</button>
+        <button class="modal-button close" type="button">닫기</button>
       </div>
     </section>
 
     <footer>
-      <button type="button">
+      <button type="button" id="addition">
         <img src="./images/addition.png" alt="내역-추가-버튼" />
       </button>
     </footer>
