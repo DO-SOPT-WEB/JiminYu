@@ -213,6 +213,7 @@ modalSaveButton.addEventListener("click", () => {
   };
 
   HISTORY_LIST.push(newItem);
+  alert("저장 완료!🥳");
 
   updateNewHistory();
 
