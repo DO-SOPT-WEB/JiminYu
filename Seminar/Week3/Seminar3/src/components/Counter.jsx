@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-const Counter = () => {
+const Counter = ({ name }) => {
   const [number, setNumber] = useState(0);
 
   const increaseNumber = () => {
@@ -14,6 +14,7 @@ const Counter = () => {
 
   return (
     <Container>
+      <h1>{name}의 계산기</h1>
       <p>{number}</p>
       <ButtonContainer>
         <CalcButton type="button" onClick={increaseNumber}>
