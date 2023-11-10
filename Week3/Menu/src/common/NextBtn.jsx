@@ -9,10 +9,12 @@ function NextBtn(btnProps) {
       type="button"
       onClick={() => setRecommendStage(recommendStage + 1)}
     >
-      다음으로
+      {recommendStage === 4 ? "결과보기" : "다음으로"}
     </NextBtnWrapper>
   ) : (
-    <NextBtnInactivated>다음으로</NextBtnInactivated>
+    <NextBtnInactivated>
+      {recommendStage === 4 ? "결과보기" : "다음으로"}
+    </NextBtnInactivated>
   );
 }
 
