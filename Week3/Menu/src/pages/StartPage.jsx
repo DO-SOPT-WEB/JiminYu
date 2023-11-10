@@ -85,7 +85,10 @@ const StartPage = () => {
   };
 
   return (
-    <PageLayout>
+    <PageLayout
+      recommendStage={recommendStage}
+      setRecommendStage={setRecommendStage}
+    >
       <ContentWrapper>{renderStage()}</ContentWrapper>
     </PageLayout>
   );

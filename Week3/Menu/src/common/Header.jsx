@@ -1,11 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-function Header() {
+function Header(headerProps) {
+  const { recommendStage, setRecommendStage } = headerProps;
+
   return (
     <HeaderWrapper>
       <h1>🍽️ 오늘 뭐 먹지? 😋</h1>
-      <button type="button">처음으로</button>
+      {recommendStage === 0 ? null : (
+        <HomeBtn type="button" onClick={() => setRecommendStage(0)}>
+          처음으로
+        </HomeBtn>
+      )}
     </HeaderWrapper>
   );
 }
@@ -27,11 +33,18 @@ const HeaderWrapper = styled.header`
     ${({ theme }) => theme.fonts.title};
     color: ${({ theme }) => theme.colors.black};
   }
-  & > button {
-    padding: 1rem;
+`;
 
-    ${({ theme }) => theme.fonts.body};
-    background-color: ${({ theme }) => theme.colors.white};
-    border-radius: 1rem;
+const HomeBtn = styled.button`
+  padding: 1rem;
+
+  ${({ theme }) => theme.fonts.body};
+  background-color: ${({ theme }) => theme.colors.white};
+  border-radius: 1rem;
+  border: solid 0.15rem ${({ theme }) => theme.colors.black};
+
+  &:hover {
+    border: solid 0.15rem ${({ theme }) => theme.colors.pink};
+    background: ${({ theme }) => theme.colors.yellow};
   }
 `;
