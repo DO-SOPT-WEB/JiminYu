@@ -54,6 +54,12 @@ const ResultPage = (resultPageProps) => {
 export default ResultPage;
 
 const CountWrapper = styled.div`
+  @keyframes blink-effect {
+    50% {
+      opacity: 0;
+    }
+  }
+
   width: 100%;
   height: 100%;
 
@@ -61,6 +67,7 @@ const CountWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
+  animation: blink-effect 1s step-end infinite;
   ${({ theme }) => theme.fonts.title};
   color: ${({ theme }) => theme.colors.pink};
 `;
