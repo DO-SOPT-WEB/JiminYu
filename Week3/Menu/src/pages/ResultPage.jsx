@@ -68,6 +68,7 @@ const CountWrapper = styled.div`
   align-items: center;
 
   animation: blink-effect 1s step-end infinite;
+  animation: blink-effect 1000ms step-end infinite;
   ${({ theme }) => theme.fonts.title};
   color: ${({ theme }) => theme.colors.pink};
   text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff,
