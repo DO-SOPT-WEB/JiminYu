@@ -4,10 +4,12 @@ import PageLayout from "../Common/PageLayout";
 import ContentTitle from "../common/ContentTitle";
 import FirstStage from "../components/FirstStage";
 import SecondStage from "../components/SecondStage";
+import ThirdStage from "../components/ThirdStage";
 
 const StartPage = () => {
   const [recommendStage, setRecommendStage] = useState(0);
   const [random, setRandom] = useState(null);
+  const [categories, setCategories] = useState([]);
 
   const renderStage = () => {
     switch (recommendStage) {
@@ -39,15 +41,22 @@ const StartPage = () => {
         );
       case 1:
         return (
-          <FirstStage
-            random={random}
-            recommendStage={recommendStage}
-            setRecommendStage={setRecommendStage}
-          />
+          <FirstStage random={random} setRecommendStage={setRecommendStage} />
         );
       case 2:
         return (
           <SecondStage
+            categories={categories}
+            setCategories={setCategories}
+            recommendStage={recommendStage}
+            setRecommendStage={setRecommendStage}
+          />
+        );
+      case 3:
+        return (
+          <ThirdStage
+            categories={categories}
+            setCategories={setCategories}
             recommendStage={recommendStage}
             setRecommendStage={setRecommendStage}
           />
