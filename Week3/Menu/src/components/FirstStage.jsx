@@ -28,7 +28,7 @@ const FirstStage = (firstStageProps) => {
           <StartBtn
             type="button"
             onClick={() => {
-              setRecommendStage(4);
+              setRecommendStage(5);
             }}
           >
             시작!
