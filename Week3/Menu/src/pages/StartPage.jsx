@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useState } from "react";
+import { useState } from "react";
 import PageLayout from "../Common/PageLayout";
 import ContentTitle from "../common/ContentTitle";
 import FirstStage from "../components/FirstStage";
@@ -88,6 +88,8 @@ const StartPage = () => {
     <PageLayout
       recommendStage={recommendStage}
       setRecommendStage={setRecommendStage}
+      categories={categories}
+      setCategories={setCategories}
     >
       <ContentWrapper>{renderStage()}</ContentWrapper>
     </PageLayout>
