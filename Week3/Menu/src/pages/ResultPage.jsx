@@ -67,7 +67,6 @@ const CountWrapper = styled.div`
   justify-content: center;
   align-items: center;
 
-  animation: blink-effect 1s step-end infinite;
   animation: blink-effect 1000ms step-end infinite;
   ${({ theme }) => theme.fonts.title};
   color: ${({ theme }) => theme.colors.pink};
@@ -105,15 +104,15 @@ const Menu = styled.img`
   background-color: ${({ theme }) => theme.colors.white};
 `;
 const MenuName = styled.span`
-  width: 12rem;
+  width: 15rem;
   height: 3rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border: solid 0.1rem ${({ theme }) => theme.colors.pink};
-  background-color: ${({ theme }) => theme.colors.yellow};
+  border: solid 0.2rem ${({ theme }) => theme.colors.yellow};
+  background-color: ${({ theme }) => theme.colors.white};
   ${({ theme }) => theme.fonts.body};
 `;
 
