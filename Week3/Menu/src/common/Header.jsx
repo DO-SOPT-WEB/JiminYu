@@ -2,13 +2,19 @@ import React from "react";
 import styled from "styled-components";
 
 function Header(headerProps) {
-  const { recommendStage, setRecommendStage } = headerProps;
+  const { recommendStage, setRecommendStage, categories, setCategories } =
+    headerProps;
+
+  const handleHomeButtonClick = () => {
+    setCategories([]);
+    setRecommendStage(0);
+  };
 
   return (
     <HeaderWrapper>
       <h1>🍽️ 오늘 뭐 먹지? 😋</h1>
       {recommendStage === 0 ? null : (
-        <HomeBtn type="button" onClick={() => setRecommendStage(0)}>
+        <HomeBtn type="button" onClick={() => handleHomeButtonClick()}>
           처음으로
         </HomeBtn>
       )}
