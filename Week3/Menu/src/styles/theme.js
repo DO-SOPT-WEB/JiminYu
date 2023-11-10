@@ -6,6 +6,8 @@ const colors = {
   black: "#000000",
   yellow: "#FDFD96",
   brown: "#836853",
+  gray: "#828282",
+  pink: "#FF69B4",
 };
 
 const fonts = {
