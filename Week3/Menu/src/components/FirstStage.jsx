@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import ContentTitle from "../common/ContentTitle";
 
 const FirstStage = (firstStageProps) => {
-  const { random, recommendStage, setRecommendStage } = firstStageProps;
+  const { random, setRecommendStage } = firstStageProps;
   const renderFirstStage = () => {
     if (random === false) {
       return (
