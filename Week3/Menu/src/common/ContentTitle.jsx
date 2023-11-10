@@ -13,8 +13,8 @@ const ContentTitleWrapper = styled.h2`
   justify-content: center;
   align-items: center;
 
-  width: 50rem;
-  height: 4rem;
+  width: 70%;
+  height: 5rem;
 
   border-radius: 1rem;
   ${({ theme }) => theme.fonts.subtitle};
