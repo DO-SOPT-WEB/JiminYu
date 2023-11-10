@@ -5,6 +5,8 @@ import ContentTitle from "../common/ContentTitle";
 import FirstStage from "../components/FirstStage";
 import SecondStage from "../components/SecondStage";
 import ThirdStage from "../components/ThirdStage";
+import FourthStage from "../components/\bFourthStage";
+import ResultPage from "./ResultPage";
 
 const StartPage = () => {
   const [recommendStage, setRecommendStage] = useState(0);
@@ -61,6 +63,17 @@ const StartPage = () => {
             setRecommendStage={setRecommendStage}
           />
         );
+      case 4:
+        return (
+          <FourthStage
+            categories={categories}
+            setCategories={setCategories}
+            recommendStage={recommendStage}
+            setRecommendStage={setRecommendStage}
+          />
+        );
+      case 5:
+        return <ResultPage />;
     }
   };
 
