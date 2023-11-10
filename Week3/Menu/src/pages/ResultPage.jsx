@@ -1,20 +1,37 @@
 import styled from "styled-components";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import ContentTitle from "../common/ContentTitle";
 import MENU_ITEMS from "../assets/data/data";
 
 const ResultPage = (resultPageProps) => {
   const { random, categories, setCategories, setRecommendStage } =
     resultPageProps;
+  const [countdown, setCountdown] = useState(3);
 
-  const renderResultPage = () => {
-    if (random === false) {
-      const selectedResult = MENU_ITEMS.find((item) =>
+  useEffect(() => {
+    if (random && countdown > 0) {
+      const timer = setInterval(() => {
+        setCountdown((prevCount) => prevCount - 1);
+      }, 1000);
+
+      return () => clearInterval(timer);
+    }
+  }, [random, countdown]);
+
+  const selectedResult = random
+    ? MENU_ITEMS[Math.floor(Math.random() * MENU_ITEMS.length)]
+    : MENU_ITEMS.find((item) =>
         item.category.every((option) => categories.includes(option))
       );
-      return (
+
+  return (
+    <>
+      {random && countdown > 0 ? (
+        <CountWrapper>{countdown}</CountWrapper>
+      ) : null}
+      {!random || countdown === 0 ? (
         <>
-          <ContentTitle>두구두구 오늘의 메뉴는!?✨</ContentTitle>
+          <ContentTitle>두근두근 오늘의 메뉴는!?✨</ContentTitle>
           <ContentContainer>
             <Menu src={selectedResult ? selectedResult.img : ""}></Menu>
             <MenuName>{selectedResult ? selectedResult.name : ""}</MenuName>
@@ -29,16 +46,24 @@ const ResultPage = (resultPageProps) => {
             다시하기
           </ReplayBtn>
         </>
-      );
-    } else if (random === true) {
-      return <></>;
-    }
-  };
-
-  return <>{renderResultPage()}</>;
+      ) : null}
+    </>
+  );
 };
 
 export default ResultPage;
+
+const CountWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  ${({ theme }) => theme.fonts.title};
+  color: ${({ theme }) => theme.colors.pink};
+`;
 
 const ContentContainer = styled.div`
   display: flex;
