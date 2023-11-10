@@ -70,6 +70,12 @@ const CountWrapper = styled.div`
   animation: blink-effect 1s step-end infinite;
   ${({ theme }) => theme.fonts.title};
   color: ${({ theme }) => theme.colors.pink};
+  text-shadow: 0 0 7px #fff, 0 0 10px #fff, 0 0 21px #fff,
+    0 0 42px ${({ theme }) => theme.colors.pink},
+    0 0 82px ${({ theme }) => theme.colors.pink},
+    0 0 92px ${({ theme }) => theme.colors.pink},
+    0 0 102px ${({ theme }) => theme.colors.pink},
+    0 0 151px ${({ theme }) => theme.colors.pink};
 `;
 
 const ContentContainer = styled.div`
