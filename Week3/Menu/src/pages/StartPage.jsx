@@ -1,18 +1,63 @@
 import styled from "styled-components";
-import React from "react";
+import React, { useState } from "react";
 import PageLayout from "../Common/PageLayout";
 import ContentTitle from "../common/ContentTitle";
+import FirstStage from "../components/FirstStage";
+import SecondStage from "../components/SecondStage";
 
 const StartPage = () => {
+  const [recommendStage, setRecommendStage] = useState(0);
+  const [random, setRandom] = useState(null);
+
+  const renderStage = () => {
+    switch (recommendStage) {
+      case 0:
+        return (
+          <>
+            <ContentTitle>어떻게 추천해줄까?!</ContentTitle>
+            <OptionWrapper>
+              <OptionBox
+                type="button"
+                onClick={() => {
+                  setRecommendStage(1);
+                  setRandom(false);
+                }}
+              >
+                취향대로 추천
+              </OptionBox>
+              <OptionBox
+                type="button"
+                onClick={() => {
+                  setRecommendStage(1);
+                  setRandom(true);
+                }}
+              >
+                랜덤 추천
+              </OptionBox>
+            </OptionWrapper>
+          </>
+        );
+      case 1:
+        return (
+          <FirstStage
+            random={random}
+            recommendStage={recommendStage}
+            setRecommendStage={setRecommendStage}
+          />
+        );
+      case 2:
+        return (
+          <SecondStage
+            recommendStage={recommendStage}
+            setRecommendStage={setRecommendStage}
+          />
+        );
+    }
+  };
+
   return (
     <PageLayout>
-      <ContentWrapper>
-        <ContentTitle>어떻게 추천해줄까?!</ContentTitle>
-        <OptionWrapper>
-          <OptionBox>취향대로 추천</OptionBox>
-          <OptionBox>랜덤 추천</OptionBox>
-        </OptionWrapper>
-      </ContentWrapper>
+      <ContentWrapper>{renderStage()}</ContentWrapper>
     </PageLayout>
   );
 };
@@ -42,7 +87,7 @@ const OptionWrapper = styled.div`
   column-gap: 1rem;
 `;
 
-const OptionBox = styled.p`
+const OptionBox = styled.button`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,7 +97,11 @@ const OptionBox = styled.p`
   height: 25rem;
 
   border-radius: 1rem;
-  border: solid 0.1rem ${({ theme }) => theme.colors.brown};
+  border: solid 0.15rem ${({ theme }) => theme.colors.gray};
   ${({ theme }) => theme.fonts.subtitle};
   background-color: ${({ theme }) => theme.colors.yellow};
+
+  &:hover {
+    border: solid 0.15rem ${({ theme }) => theme.colors.pink};
+  }
 `;
