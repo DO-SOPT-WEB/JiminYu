@@ -1,7 +1,6 @@
-import "./App.css";
+import StartPage from "./pages/StartPage";
 
 function App() {
-  return <></>;
+  return <StartPage />;
 }
-
 export default App;
