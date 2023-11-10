@@ -73,7 +73,14 @@ const StartPage = () => {
           />
         );
       case 5:
-        return <ResultPage />;
+        return (
+          <ResultPage
+            random={random}
+            categories={categories}
+            setCategories={setCategories}
+            setRecommendStage={setRecommendStage}
+          />
+        );
     }
   };
 
