@@ -3,12 +3,20 @@ import React from "react";
 import Header from "./Header";
 
 const PageLayout = (props) => {
-  const { recommendStage, setRecommendStage, children } = props;
+  const {
+    recommendStage,
+    setRecommendStage,
+    categories,
+    setCategories,
+    children,
+  } = props;
   return (
     <StyledPageWrapper>
       <Header
         recommendStage={recommendStage}
         setRecommendStage={setRecommendStage}
+        categories={categories}
+        setCategories={setCategories}
       />
       <ContentWrapper>{children}</ContentWrapper>
     </StyledPageWrapper>
