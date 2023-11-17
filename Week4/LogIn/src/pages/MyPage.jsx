@@ -1,23 +1,48 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
+import api from "../libs/api";
 import PageLayout from "../common/PageLayout";
 import SignOutButton from "../components/SignOutButton";
 import User from "../assets/user.png";
 
 const MyPage = () => {
+  const [username, setUsername] = useState("");
+  const [nickname, setNickname] = useState("");
+  const { userId } = useParams();
+
   const navigate = useNavigate();
   const navigateSignIn = () => {
     navigate("/login");
   };
 
+  const getProfile = () => {
+    api
+      .get(`/api/v1/members/${userId}`, {
+        params: {
+          memberId: `${username}`,
+        },
+      })
+      .then((res) => {
+        setNickname(res.data.nickname);
+        setUsername(res.data.username);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(() => {
+    getProfile();
+  }, []);
+
   return (
     <PageLayout headerText={"MY PAGE"}>
       <ProfileWrapper>
         <ProfileImg src={User} />
-        <ProfileBox>ID : </ProfileBox>
-        <ProfileBox>닉네임 : </ProfileBox>
+        <ProfileBox>ID : {username}</ProfileBox>
+        <ProfileBox>닉네임 : {nickname}</ProfileBox>
       </ProfileWrapper>
       <SignOutButton
         type="button"
