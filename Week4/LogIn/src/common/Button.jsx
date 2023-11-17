@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const Button = (buttonProps) => {
-  const { buttonText, buttonColor, textColor, onClick } = buttonProps;
+  const { buttonText, buttonColor, textColor, onClick, disabled } = buttonProps;
   return (
     <ButtonWrapper
       buttonColor={buttonColor}
       textColor={textColor}
       onClick={onClick}
+      disabled={disabled}
     >
       {buttonText}
     </ButtonWrapper>
@@ -26,4 +27,6 @@ const ButtonWrapper = styled.button`
   border: solid 0.1rem ${({ theme }) => theme.colors.black};
   background-color: ${(props) => props.theme.colors[props.buttonColor]};
   color: ${(props) => props.theme.colors[props.textColor]};
+
+  opacity: ${({ disabled }) => (disabled ? "0.5" : "1")};
 `;

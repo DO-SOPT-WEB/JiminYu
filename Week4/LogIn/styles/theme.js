@@ -8,6 +8,7 @@ const colors = {
   brown: "#836853",
   gray: "#D3D3D3",
   pink: "#FF69B4",
+  red: "#ff2c2c",
 };
 
 const fonts = {

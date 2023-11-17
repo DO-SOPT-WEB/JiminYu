@@ -1,25 +1,82 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useState } from "react";
+import api from "../libs/api";
 
 import PageLayout from "../common/PageLayout";
 import CheckButton from "../components/CheckButton";
 import Button from "../common/Button";
+import { useNavigate } from "react-router-dom";
 
 const SignUpPage = () => {
-  // 중복 확인 api 통신하는 훅
-  // 통신 결과에 맞게 버튼 색깔 바꿔주는 훅
-  // 폼 다 채우면 버튼 활성화 되도록 하는 훅
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [nickname, setNickname] = useState("");
+  const [isExist, setIsExist] = useState();
+  const [buttonDisabled, setButtonDisabled] = useState(true);
+
+  const navigate = useNavigate();
+  // 회원가입 api
+  const postSignUp = () => {
+    api
+      .post(
+        `/api/v1/members`,
+        {
+          "username": `${username}`,
+          "password": `${password}`,
+          "nickname": `${nickname}`,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        navigate(`/login`);
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  const getMembersCheck = () => {
+    api
+      .get(`/api/v1/members/check`, {
+        params: {
+          "username": `${username}`,
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+        setIsExist(res.data.isExist);
+
+        if (res.data.isExist){
+          setUsername("");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  useEffect(()=>{
+    username && nickname && password && isExist == false ? setButtonDisabled(false):setButtonDisabled(true);}
+  ,[username, nickname, password, isExist]);
+
   return (
     <PageLayout headerText={"Sign Up"}>
       <FormWrapper action="" method="get" className="form-example">
         <InputWrapper>
-          <Label htmlFor="name">ID </Label>
+          <Label htmlFor="username">ID </Label>
           <IdCheckWrapper>
             <IdInput
               type="text"
-              name="name"
-              id="name"
+              name="username"
+              id="username"
               placeholder="아이디를 입력해주세요."
+              onChange={(e) => setUsername(e.target.value)}
               required
             />
             <CheckButton
@@ -27,36 +84,40 @@ const SignUpPage = () => {
               buttonText={"중복확인"}
               buttonColor={"black"}
               textColor={"white"}
+              onClick={getMembersCheck}
+              isExist={isExist}
             />
           </IdCheckWrapper>
         </InputWrapper>
         <InputWrapper>
-          <Label htmlFor="email">비밀번호 </Label>
+          <Label htmlFor="password">비밀번호 </Label>
           <Input
             type="text"
-            name="email"
-            id="email"
+            name="password"
+            id="password"
             placeholder="비밀번호를 입력해주세요."
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </InputWrapper>
         <InputWrapper className="form-example">
-          <Label for="email">비밀번호 확인 </Label>
+          <Label htmlFor="password-check">비밀번호 확인 </Label>
           <Input
             type="text"
-            name="email"
-            id="email"
+            name="password-check"
+            id="password-check"
             placeholder="비밀번호를 다시 한 번 입력해주세요."
             required
           />
         </InputWrapper>
         <InputWrapper className="form-example">
-          <Label for="email">닉네임 </Label>
+          <Label htmlFor="email">닉네임 </Label>
           <Input
             type="text"
             name="email"
             id="email"
             placeholder="닉네임을 입력해주세요."
+            onChange={(e) => setNickname(e.target.value)}
             required
           />
         </InputWrapper>
@@ -65,7 +126,8 @@ const SignUpPage = () => {
           buttonText={"회원가입"}
           buttonColor={"black"}
           textColor={"white"}
-          disabled
+          onClick={postSignUp}
+          disabled={buttonDisabled}
         />
       </FormWrapper>
     </PageLayout>
@@ -74,7 +136,7 @@ const SignUpPage = () => {
 
 export default SignUpPage;
 
-const FormWrapper = styled.form`
+const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
