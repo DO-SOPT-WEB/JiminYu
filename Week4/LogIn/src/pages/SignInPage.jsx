@@ -1,26 +1,56 @@
 import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
+import api from "../libs/api";
 import { useNavigate } from "react-router-dom";
+
 import PageLayout from "../common/PageLayout";
 import Button from "../common/Button";
 
 const SignInPage = () => {
+  const [id, setId] = useState("");
+  const [password, setPassword] = useState("");
+
   const navigate = useNavigate();
 
   const navigateSignUp = () => {
     navigate("/signup");
   };
 
+  const postSignIn = () => {
+    api
+      .post(
+        `/api/v1/members/sign-in`,
+        {
+          username: `${id}`,
+          password: `${password}`,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => {
+        navigate(`/mypage/${res.data.id}`);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <PageLayout headerText={"Sign In"}>
       <FormWrapper action="" method="get" className="form-example">
         <InputWrapper className="form-example">
-          <Label htmlFor="id">ID </Label>
+          <Label htmlFor="username">ID </Label>
           <Input
             type="text"
-            name="id"
-            id="id"
+            id="username"
+            name="username"
+            value={id}
             placeholder="아이디를 입력해주세요."
+            onChange={(e) => setId(e.target.value)}
             required
           />
         </InputWrapper>
@@ -28,9 +58,11 @@ const SignInPage = () => {
           <Label htmlFor="password">PASSWORD </Label>
           <Input
             type="text"
-            name="password"
             id="password"
+            name="password"
+            value={password}
             placeholder="비밀번호를 입력해주세요."
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
         </InputWrapper>
@@ -40,6 +72,7 @@ const SignInPage = () => {
             buttonText={"로그인"}
             buttonColor={"black"}
             textColor={"white"}
+            onClick={postSignIn}
           />
           <Button
             type="button"
@@ -56,7 +89,7 @@ const SignInPage = () => {
 
 export default SignInPage;
 
-const FormWrapper = styled.form`
+const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
