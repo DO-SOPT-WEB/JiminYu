@@ -22,8 +22,8 @@ const SignInPage = () => {
       .post(
         `/api/v1/members/sign-in`,
         {
-          username: `${id}`,
-          password: `${password}`,
+          "username": `${id}`,
+          "password": `${password}`,
         },
         {
           headers: {
