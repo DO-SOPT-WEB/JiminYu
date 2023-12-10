@@ -34,6 +34,7 @@ header {
 }
 
 .preview {
+  position: relative;
   width: 100vw;
 
   display: flex;
@@ -43,6 +44,19 @@ header {
   overflow-x: auto;
 }
 
+.preview button img {
+  width: 2rem;
+  height: 2rem;
+}
+.button-div {
+  position: absolute;
+  top: 50%;
+  left: 0;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 /* 스크롤바 커스텀 */
 .preview::-webkit-scrollbar {
   width: 0.1rem;
