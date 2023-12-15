@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import React, { useState } from "react";
+import { useState, useEffect } from "react";
 import ContentTitle from "../common/ContentTitle";
 import BackBtn from "../common/BackBtn";
 import NextBtn from "../common/NextBtn";
@@ -17,8 +17,16 @@ const ThirdStage = (thirdStageProps) => {
 
   const handleOptionClick = (value) => {
     setSelectedOption(value);
-    setCategories([...categories, value]);
+    const categoriesCopy = [...categories];
+    categoriesCopy[1] = value;
+    setCategories(categoriesCopy);
   };
+
+  useEffect(() => {
+    if (categories[1]) {
+      setSelectedOption(categories[1]);
+    }
+  }, []);
 
   const renderSecondStage = () => {
     return (

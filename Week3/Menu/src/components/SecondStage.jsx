@@ -1,11 +1,12 @@
 import styled from "styled-components";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ContentTitle from "../common/ContentTitle";
 import BackBtn from "../common/BackBtn";
 import NextBtn from "../common/NextBtn";
 
 const SecondStage = (secondStageProps) => {
-  const { setCategories, recommendStage, setRecommendStage } = secondStageProps;
+  const { setCategories, recommendStage, categories, setRecommendStage } =
+    secondStageProps;
   const [selectedOption, setSelectedOption] = useState(null);
 
   const options = [
@@ -16,8 +17,16 @@ const SecondStage = (secondStageProps) => {
 
   const handleOptionClick = (value) => {
     setSelectedOption(value);
-    setCategories([value]);
+    const categoriesCopy = [...categories];
+    categoriesCopy[0] = value;
+    setCategories(categoriesCopy);
   };
+
+  useEffect(() => {
+    if (categories[0]) {
+      setSelectedOption(categories[0]);
+    }
+  }, []);
 
   const renderSecondStage = () => {
     return (
