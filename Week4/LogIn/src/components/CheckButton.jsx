@@ -18,12 +18,12 @@ const CheckButton = (buttonProps) => {
 export default CheckButton;
 
 const CheckButtonWrapper = styled.button`
+  cursor: pointer;
   padding: 0.5rem;
 
   width: 5rem;
   height: 3rem;
 
-  /* border-radius: 0.5rem; */
   background-color: ${({ theme, isExist }) =>
     isExist === true
       ? theme.colors.red

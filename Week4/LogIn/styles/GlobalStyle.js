@@ -16,7 +16,6 @@ const reset = css`
     -webkit-tap-highlight-color: transparent;
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    cursor: default;
     line-height: 1.5;
     overflow-wrap: break-word;
     word-break: break-word;
@@ -33,9 +32,9 @@ const reset = css`
     width: 100%;
   }
   button {
+    cursor: pointer;
     background: none;
     border: 0;
-    cursor: pointer;
   }
   a {
     text-decoration: none;

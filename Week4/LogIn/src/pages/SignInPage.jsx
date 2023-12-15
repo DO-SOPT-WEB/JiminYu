@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useState } from "react";
 import styled from "styled-components";
 import api from "../libs/api";
+import { createPortal } from "react-dom";
 import { useNavigate } from "react-router-dom";
 
 import PageLayout from "../common/PageLayout";
@@ -10,6 +11,7 @@ import Button from "../common/Button";
 const SignInPage = () => {
   const [id, setId] = useState("");
   const [password, setPassword] = useState("");
+  const [toasts, setToasts] = useState("");
 
   const navigate = useNavigate();
 
@@ -22,8 +24,8 @@ const SignInPage = () => {
       .post(
         `/api/v1/members/sign-in`,
         {
-          "username": `${id}`,
-          "password": `${password}`,
+          username: `${id}`,
+          password: `${password}`,
         },
         {
           headers: {
@@ -35,9 +37,19 @@ const SignInPage = () => {
         navigate(`/mypage/${res.data.id}`);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("err.data", err);
+        setToasts(err.response.data.message);
       });
   };
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setToasts("");
+    }, 2000);
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [toasts]);
 
   return (
     <PageLayout headerText={"Sign In"}>
@@ -82,6 +94,8 @@ const SignInPage = () => {
             onClick={navigateSignUp}
           />
         </ButtonsWrapper>
+        {toasts &&
+          createPortal(<ModalContent>{toasts}</ModalContent>, document.body)}
       </FormWrapper>
     </PageLayout>
   );
@@ -119,4 +133,22 @@ const Label = styled.label`
 const Input = styled.input`
   width: 20rem;
   padding: 0.5rem;
+`;
+
+const ModalContent = styled.div`
+  position: fixed;
+  bottom: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  padding: 1rem;
+  width: fit-content;
+
+  z-index: 9999;
+  border-radius: 1rem;
+  background-color: black;
+
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
 `;
