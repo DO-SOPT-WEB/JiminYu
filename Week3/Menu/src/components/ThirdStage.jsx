@@ -40,6 +40,7 @@ const ThirdStage = (thirdStageProps) => {
             recommendStage={recommendStage}
             setRecommendStage={setRecommendStage}
           />
+          <ShowStep>2 / 3</ShowStep>
           <NextBtn
             recommendStage={recommendStage}
             setRecommendStage={setRecommendStage}
@@ -87,13 +88,27 @@ const OptionBox = styled.button`
     border: solid 0.15rem ${({ theme }) => theme.colors.pink};
   }
 `;
+
+const ShowStep = styled.div`
+  width: 6rem;
+  height: 4rem;
+  padding: 1rem;
+
+  border-radius: 3rem;
+  text-align: center;
+  font-size: 1.5rem;
+
+  background-color: black;
+  color: white;
+`;
+
 const BtnWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
 
   width: 100%;
-  height: 100%;
+  height: 30%;
 
   column-gap: 3rem;
 `;
