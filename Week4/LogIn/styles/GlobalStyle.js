@@ -26,7 +26,11 @@ const reset = css`
   }
   html,
   body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100%;
+    width: 100%;
   }
   button {
     background: none;
