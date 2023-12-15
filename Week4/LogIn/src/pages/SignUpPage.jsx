@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 const SignUpPage = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [checkPassword, setCheckPassword] = useState("");
   const [nickname, setNickname] = useState("");
   const [isExist, setIsExist] = useState();
   const [buttonDisabled, setButtonDisabled] = useState(true);
@@ -22,9 +23,9 @@ const SignUpPage = () => {
       .post(
         `/api/v1/members`,
         {
-          "username": `${username}`,
-          "password": `${password}`,
-          "nickname": `${nickname}`,
+          username: `${username}`,
+          password: `${password}`,
+          nickname: `${nickname}`,
         },
         {
           headers: {
@@ -34,7 +35,6 @@ const SignUpPage = () => {
       )
       .then((res) => {
         navigate(`/login`);
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(err);
@@ -45,14 +45,14 @@ const SignUpPage = () => {
     api
       .get(`/api/v1/members/check`, {
         params: {
-          "username": `${username}`,
+          username: `${username}`,
         },
       })
       .then((res) => {
         console.log(res.data);
         setIsExist(res.data.isExist);
 
-        if (res.data.isExist){
+        if (res.data.isExist) {
           setUsername("");
         }
       })
@@ -61,9 +61,15 @@ const SignUpPage = () => {
       });
   };
 
-  useEffect(()=>{
-    username && nickname && password && isExist == false ? setButtonDisabled(false):setButtonDisabled(true);}
-  ,[username, nickname, password, isExist]);
+  useEffect(() => {
+    username &&
+    nickname &&
+    password &&
+    password === checkPassword &&
+    isExist == false
+      ? setButtonDisabled(false)
+      : setButtonDisabled(true);
+  }, [username, nickname, password, checkPassword, isExist]);
 
   return (
     <PageLayout headerText={"Sign Up"}>
@@ -76,7 +82,10 @@ const SignUpPage = () => {
               name="username"
               id="username"
               placeholder="아이디를 입력해주세요."
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => {
+                setIsExist();
+                setUsername(e.target.value);
+              }}
               required
             />
             <CheckButton
@@ -107,6 +116,7 @@ const SignUpPage = () => {
             name="password-check"
             id="password-check"
             placeholder="비밀번호를 다시 한 번 입력해주세요."
+            onChange={(e) => setCheckPassword(e.target.value)}
             required
           />
         </InputWrapper>
