@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import ContentTitle from "../common/ContentTitle";
 import MENU_ITEMS from "../assets/data/data";
 
@@ -18,11 +18,13 @@ const ResultPage = (resultPageProps) => {
     }
   }, [random, countdown]);
 
-  const selectedResult = random
-    ? MENU_ITEMS[Math.floor(Math.random() * MENU_ITEMS.length)]
-    : MENU_ITEMS.find((item) =>
-        item.category.every((option) => categories.includes(option))
-      );
+  const selectedResult = useMemo(() => {
+    return random
+      ? MENU_ITEMS[Math.floor(Math.random() * MENU_ITEMS.length)]
+      : MENU_ITEMS.find((item) =>
+          item.category.every((option) => categories.includes(option))
+        );
+  }, [random, categories]);
 
   return (
     <>
