@@ -1,226 +1,303 @@
 @import "../reset.css";
 
 @font-face {
-	font-family: "YeongdeokSea";
-	src: url("./font/Yeongdeok\ Sea.ttf") format("truetype");
-	font-weight: normal;
-	font-style: normal;
+  font-family: "YeongdeokSea";
+  src: url("./font/Yeongdeok\ Sea.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
 }
 * {
-	/* 화면 전체 중앙 정렬 */
-	margin: 0 auto;
+  /* 화면 전체 중앙 정렬 */
+  margin: 0 auto;
 }
 
 body {
-	width: 100vw;
-	height: 100vh;
+  width: 100vw;
+  height: 100vh;
 
-	font-family: "YeongdeokSea";
-	background-color: beige;
+  font-family: "YeongdeokSea";
+  background-color: beige;
 
-	/* 전체 화면 스크롤 안되도록 가려주기 */
-	overflow: hidden;
+  /* 전체 화면 스크롤 안되도록 가려주기 */
+  overflow: hidden;
 }
 
 h1 {
-	width: 100vw;
-	height: 4rem;
-	padding: 0.4rem;
+  width: 100vw;
+  height: 4rem;
+  padding: 0.4rem;
 
-	text-align: center;
-	font-size: 2rem;
-	font-weight: 600;
-	background-color: #b5e8a4;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  background-color: #b5e8a4;
 }
 
 /* 상단 나의 자산 보여주는 영역 */
 .summary-section {
-	height: 13rem;
-	padding: 1rem;
+  height: 13rem;
+  padding: 1rem;
 }
 
 .summary-article {
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-	width: 80vw;
+  width: 80vw;
 
-	border: solid;
-	border-width: 0.3rem;
-	border-radius: 1.5rem;
+  border: solid;
+  border-width: 0.3rem;
+  border-radius: 1.5rem;
 
-	background-color: white;
+  background-color: white;
 }
 
 h2 {
-	font-size: 1.8rem;
-	font-weight: 600;
+  font-size: 1.8rem;
+  font-weight: 600;
 }
 
 .total {
-	font-size: 2.5rem;
-	font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 600;
 }
 
 .summary-article__details {
-	display: flex;
+  display: flex;
 
-	margin-bottom: 1rem;
-	column-gap: 2rem;
+  margin-bottom: 1rem;
+  column-gap: 2rem;
 
-	font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .summary-article__details img {
-	width: 1.5rem;
-	height: 1.5rem;
-	text-align: center;
-	vertical-align: middle;
-	margin-right: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  text-align: center;
+  vertical-align: middle;
+  margin-right: 0.5rem;
 }
 
 .first-line {
-	height: 0.1rem;
-	background-color: orange;
+  height: 0.1rem;
+  background-color: orange;
 }
 
 .details-container {
-	height: 7.4rem;
+  height: 7.4rem;
 }
 
 .second-line {
-	height: 0.08rem;
-	background-color: orange;
-	margin: 0.3rem 0;
+  height: 0.08rem;
+  background-color: orange;
+  margin: 0.3rem 0;
 }
 
 .date-container {
-	display: flex;
-	justify-content: center;
+  display: flex;
+  justify-content: center;
 
-	margin: 0.5rem 0;
+  margin: 0.5rem 0;
 
-	font-size: 1.7rem;
+  font-size: 1.7rem;
 }
 
 h4 {
-	font-size: 1.6rem;
+  font-size: 1.6rem;
 }
 
 label {
-	font-size: 1.4rem;
+  font-size: 1.4rem;
 }
 
 .h4-checkbox-container {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-	margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 /* 체크박스 커스텀 */
 input[type="checkbox"] {
-	display: none;
+  display: none;
 }
 
 label {
-	text-align: center;
-	vertical-align: center;
-	line-height: 1.5rem;
+  text-align: center;
+  vertical-align: center;
+  line-height: 1.5rem;
 }
 
 input[type="checkbox"] + label {
-	display: inline-block;
+  display: inline-block;
 
-	width: 4rem;
-	height: 2rem;
+  width: 4rem;
+  height: 2rem;
 
-	border: 0.2rem solid orange;
-	border-radius: 0.5rem;
-	cursor: pointer;
+  border: 0.2rem solid orange;
+  border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 input[type="checkbox"]:checked + label {
-	display: inline-block;
+  display: inline-block;
 
-	color: white;
-	background-color: orange;
+  color: white;
+  background-color: orange;
 }
 
 .list-container {
-	display: flex;
-	flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-	height: calc(100vh - 28.4rem);
-	padding: 0.5rem 1rem;
+  height: calc(100vh - 28.4rem);
+  padding: 0.5rem 1rem;
 
-	overflow-y: auto;
-	row-gap: 0.5rem;
+  overflow-y: auto;
+  row-gap: 0.5rem;
 }
 
 .list-container li {
-	display: flex;
-	width: 100%;
+  display: flex;
+  width: 100%;
 
-	justify-content: space-between;
-	align-items: center;
+  justify-content: space-between;
+  align-items: center;
 
-	padding: 0.5rem 0;
+  padding: 0.5rem 0;
 
-	background-color: white;
-	border: solid;
-	border-color: black;
-	border-radius: 0.8rem;
+  background-color: white;
+  border: solid;
+  border-color: black;
+  border-radius: 0.8rem;
 }
 
 .list-container li > button {
-	position: relative;
-	right: 0;
+  position: relative;
+  right: 0;
 }
 
 .list__category {
-	font-size: 1.1rem;
+  font-size: 1.1rem;
 }
 
 /* 길어지면 말줄임 처리하기 */
 .subject {
-	display: block;
-	width: 10rem;
+  display: block;
+  width: 10rem;
 
-	overflow: hidden;
-	white-space: nowrap;
-	text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .subject,
-.amount_minus,
-.amount_plus {
-	font-size: 1.3rem;
+.amount {
+  font-size: 1.3rem;
 }
 
-.amount_minus {
-	color: rgb(0, 98, 255);
+.plus {
+  color: rgb(0, 98, 255);
 }
 
-.amount_plus {
-	color: rgb(255, 30, 0);
+.minus {
+  color: rgb(255, 30, 0);
 }
 
+/* 모달 */
+.modal-container {
+  width: 100%;
+  height: 0;
+
+  background-color: #f4f9af;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  bottom: 3rem;
+  right: 0;
+  padding: 0;
+  overflow: hidden;
+
+  transition: 0.5s;
+}
+
+.modal-container.open {
+  height: 60%;
+}
+
+@keyframes animation-modal {
+  from {
+    bottom: -50%;
+    opacity: 0;
+  }
+  to {
+    top: 60%;
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  text-align: center;
+  margin: 1rem 0;
+  row-gap: 1rem;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  row-gap: 0.5rem;
+  padding: 0 1rem;
+  margin-bottom: 2cqh;
+}
+
+.modal-body label {
+  font-size: 1.6rem;
+}
+
+.modal-body select {
+  width: 10rem;
+}
+
+.modal-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  color: white;
+}
+
+.modal-footer button {
+  width: 50%;
+  padding: 0.5rem;
+  font-size: 1.4rem;
+  background-color: #5cb85c;
+  border-radius: 1.3rem;
+  margin: 0.2rem 0;
+  cursor: pointer;
+}
+
+/* 푸터 */
 footer {
-	position: absolute;
-	bottom: 0;
+  position: absolute;
+  bottom: 0;
 
-	height: 3rem;
-	width: 100%;
+  height: 3rem;
+  width: 100%;
 
-	background-color: #b5e8a4;
-	text-align: center;
+  background-color: #b5e8a4;
+  text-align: center;
 }
 
 footer > button > img {
-	height: 3rem;
-	width: 3rem;
+  height: 3rem;
+  width: 3rem;
 }
